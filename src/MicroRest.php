@@ -48,11 +48,11 @@ trait MicroRest
      */
     protected function getPrefix(): string
     {
-        if (property_exists($this, 'MODULE_PREFIX') && !is_null($this->MODULE_PREFIX)) {
-            return $this->MODULE_PREFIX;
+        if (defined(get_class($this)."::PREFIX") && !is_null(static::PREFIX)) {
+            return static::PREFIX;
         }
 
-        throw new Exception("Property \$MODULE_PREFIX is not set in class or might be null.");
+        throw new Exception("Constant PREFIX is not set in class or might be null.");
     }
 
     /**
