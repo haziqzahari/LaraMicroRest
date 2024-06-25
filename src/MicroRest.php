@@ -18,7 +18,7 @@ trait MicroRest
     protected $headers = [];
     protected $cookies = [];
 
-    public string $SERVER_NAME;
+    public string $SERVER_NAME = '';
     public string $MODULE_PREFIX;
 
     /**
@@ -29,16 +29,18 @@ trait MicroRest
     protected function getHost(): string
     {
 
-        if(Config::has('api.'.strtoupper($this->getPrefix())))
+        $prefix = strtoupper($this->getConfigKey());
+
+        if(Config::has("api.{$prefix}"))
         {
-            return config('api.'.strtoupper($this->getPrefix()));
+            return config("api.{$prefix}");
         }
 
         if (property_exists($this, 'SERVER_NAME') && !is_null($this->SERVER_NAME)) {
             return $this->SERVER_NAME;
         }
 
-        throw new Exception("Property \$SERVER_NAME is not set in class or might be null.");
+        throw new Exception("Property \$SERVER_NAME or config, api.{$this->getConfigKey()} is not set in class or might be null.");
     }
 
     /**
@@ -53,6 +55,15 @@ trait MicroRest
         }
 
         throw new Exception("Constant PREFIX is not set in class or might be null.");
+    }
+
+    protected function getConfigKey(): string
+    {
+        if (defined(get_class($this)."::CONFIG_KEY") && !is_null(static::CONFIG_KEY)) {
+            return static::CONFIG_KEY;
+        }
+
+        throw new Exception("Constant CONFIG_KEY is not set in class or might be null.");
     }
 
     /**
