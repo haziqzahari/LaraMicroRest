@@ -1,6 +1,6 @@
 <?php
 
-namespace Haziqzahari\LaraMicroRest\Constants;
+namespace Haziqzahari\LaraMicroRest\Contracts;
 
 interface Observer
 {

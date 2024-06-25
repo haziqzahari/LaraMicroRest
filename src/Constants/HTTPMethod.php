@@ -2,7 +2,7 @@
 
 namespace Haziqzahari\LaraMicroRest\Constants;
 
-abstract class HTTP
+abstract class HTTPMethod
 {
     const GET = 'GET';
 
