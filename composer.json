@@ -1,0 +1,27 @@
+{
+    "name": "haziqzahari/lara-micro-rest",
+    "description": "RESTful API Handlers to consume responses and forward requests in microservices.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Haziqzahari\\LaraMicroRest\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Intan Suriana Rusli",
+            "email": "intansurianarusli1210@gmail.com"
+        },
+        {
+            "name": "Haziq Zahari",
+            "email": "haziqzahari@outlook.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": "^8.0",
+        "guzzlehttp/guzzle": "^7.2",
+        "laravel/framework": "^10.0"
+    }
+}
