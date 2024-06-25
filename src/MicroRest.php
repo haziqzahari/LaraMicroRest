@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Config;
 use Illuminate\Http\Client\RequestException;
 use Symfony\Component\HttpFoundation\Cookie;
 
-trait CaraRest
+trait MicroRest
 {
     protected $version;
     protected $prefix;
